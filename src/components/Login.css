@@ -1,4 +1,4 @@
-/* src/App.css 또는 LoginPage.css */
+/* src/components/LoginPage.css */
 .login-container {
     display: flex;
     flex-direction: column;
