@@ -1,0 +1,18 @@
+/* src/components/Footer.css */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background-color: #1e1e2f; /* 다크 모드 배경색 */
+    color: white;
+    font-size: 0.9rem;
+    z-index: 1000;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    padding-bottom: 70px; /* 푸터 높이만큼 하단 패딩 추가 */
+}

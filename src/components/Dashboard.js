@@ -1,6 +1,6 @@
 // src/components/Dashboard.js
 import React, { useState } from 'react';
-import Alerts from './Alerts';
+import { FaThermometerHalf, FaPowerOff } from 'react-icons/fa'; // 아이콘 추가
 import './Dashboard.css';
 
 function Dashboard() {
@@ -8,7 +8,6 @@ function Dashboard() {
     const [boiler, setBoiler] = useState({ temperature: 28, isOn: true });
     const [airConditioner, setAirConditioner] = useState({ temperature: 26, isOn: true });
 
-    // 슬라이더와 텍스트 입력 필드 모두 온도 조절이 가능하도록 수정
     const handleTemperatureChange = (device, value) => {
         const temperature = parseInt(value, 10);
         if (device === 'boiler') setBoiler((prev) => ({ ...prev, temperature }));
@@ -21,71 +20,66 @@ function Dashboard() {
     };
 
     return (
-        <div className="dashboard">
-            <div className="left-section">
-                <div className="user-info card">
-                    <h3>기본 정보</h3>
-                    <p>이름: {userInfo.name}</p>
-                    <p>이메일: {userInfo.email}</p>
-
-                    <div className="alerts-section">
-                        <h4>알림 목록</h4>
-                        <Alerts />
-                    </div>
-                </div>
+        <div className="dashboard-container">
+            {/* 사용자 정보 카드 */}
+            <div className="user-info card">
+                <h3>기본 정보</h3>
+                <p>이름: {userInfo.name}</p>
+                <p>이메일: {userInfo.email}</p>
             </div>
 
-            <div className="right-section">
-                <div className="device-status card">
-                    <h3>연결된 기기 및 상태</h3>
+            {/* 기기 상태 정보 카드 */}
+            <div className="device-status card">
+                <h3>연결된 기기 및 상태</h3>
 
-                    <div className="device">
-                        <h4>보일러</h4>
-                        <p>온도: {boiler.temperature}°C</p>
-                        <input
-                            type="range"
-                            min="15"
-                            max="30"
-                            value={boiler.temperature}
-                            onChange={(e) => handleTemperatureChange('boiler', e.target.value)}
-                        />
-                        <input
-                            type="number"
-                            min="15"
-                            max="30"
-                            value={boiler.temperature}
-                            onChange={(e) => handleTemperatureChange('boiler', e.target.value)}
-                            className="temperature-input"
-                        />
-                        <p>난방: {boiler.isOn ? "ON" : "OFF"}</p>
-                        <button onClick={() => togglePower('boiler')}>
-                            {boiler.isOn ? "Turn OFF" : "Turn ON"}
-                        </button>
-                    </div>
+                <div className="device">
+                    <h4><FaThermometerHalf /> 보일러</h4>
+                    <p>온도: {boiler.temperature}°C</p>
+                    <input
+                        type="range"
+                        min="15"
+                        max="30"
+                        value={boiler.temperature}
+                        onChange={(e) => handleTemperatureChange('boiler', e.target.value)}
+                        className="slider"
+                    />
+                    <input
+                        type="number"
+                        min="15"
+                        max="30"
+                        value={boiler.temperature}
+                        onChange={(e) => handleTemperatureChange('boiler', e.target.value)}
+                        className="temperature-input"
+                    />
+                    <button onClick={() => togglePower('boiler')} className="power-button">
+                        {boiler.isOn ? <FaPowerOff style={{ color: 'green' }} /> : <FaPowerOff style={{ color: 'red' }} />}
+                        {boiler.isOn ? " 켜짐" : " 꺼짐"}
+                    </button>
+                </div>
 
-                    <div className="device">
-                        <h4>에어컨</h4>
-                        <p>온도: {airConditioner.temperature}°C</p>
-                        <input
-                            type="range"
-                            min="18"
-                            max="30"
-                            value={airConditioner.temperature}
-                            onChange={(e) => handleTemperatureChange('airConditioner', e.target.value)}
-                        />
-                        <input
-                            type="number"
-                            min="18"
-                            max="30"
-                            value={airConditioner.temperature}
-                            onChange={(e) => handleTemperatureChange('airConditioner', e.target.value)}
-                            className="temperature-input"
-                        />
-                        <p>전원: {airConditioner.isOn ? "ON" : "OFF"}</p>
-                        <button onClick={() => togglePower('airConditioner')}>
-                            {airConditioner.isOn ? "Turn OFF" : "Turn ON"}
-                        </button>
-                    </div>
+                <div className="device">
+                    <h4><FaThermometerHalf /> 에어컨</h4>
+                    <p>온도: {airConditioner.temperature}°C</p>
+                    <input
+                        type="range"
+                        min="18"
+                        max="30"
+                        value={airConditioner.temperature}
+                        onChange={(e) => handleTemperatureChange('airConditioner', e.target.value)}
+                        className="slider"
+                    />
+                    <input
+                        type="number"
+                        min="18"
+                        max="30"
+                        value={airConditioner.temperature}
+                        onChange={(e) => handleTemperatureChange('airConditioner', e.target.value)}
+                        className="temperature-input"
+                    />
+                    <button onClick={() => togglePower('airConditioner')} className="power-button">
+                        {airConditioner.isOn ? <FaPowerOff style={{ color: 'green' }} /> : <FaPowerOff style={{ color: 'red' }} />}
+                        {airConditioner.isOn ? " 켜짐" : " 꺼짐"}
+                    </button>
                 </div>
             </div>
         </div>

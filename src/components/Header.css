@@ -1,0 +1,38 @@
+/* src/components/Header.css */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1e1e2f; /* 다크 모드 배경색 */
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-logo a {
+    color: #4CAF50; /* 초록색 로고 텍스트 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header-nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.header-nav a:hover {
+    color: #4CAF50; /* 초록색으로 강조 */
+    text-decoration: underline;
+}
+
+body {
+    padding-top: 70px; /* 헤더 높이만큼 상단 패딩 추가 */
+}

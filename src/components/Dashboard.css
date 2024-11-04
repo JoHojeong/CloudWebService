@@ -1,67 +1,74 @@
 /* src/components/Dashboard.css */
-.dashboard {
+.dashboard-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     padding: 2rem;
-    background-color: #f7f9fc;
-    font-family: Arial, sans-serif;
-    gap: 1rem;
-}
-
-.left-section, .right-section {
-    flex: 1;
-    max-width: 48%;
+    background-color: #2a2a3e; /* 다크 모드 배경과 맞추기 */
 }
 
 .card {
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #333544; /* 카드 배경을 조금 더 밝은 회색으로 */
+    color: #e0e0e0; /* 밝은 텍스트 색상 */
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .card h3, .card h4 {
-    color: #333;
+    color: #ffffff; /* 제목 텍스트는 흰색 */
+    font-weight: bold;
 }
 
-.alerts-section {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #ddd;
+.device {
+    margin-top: 1.5rem;
 }
 
-.device-status {
-    margin-top: 1rem;
+.device h4 {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
 }
 
-.device input[type="range"] {
+.slider, .temperature-input {
     width: 100%;
     margin: 10px 0;
+    background: #44475a;
+    border-radius: 5px;
 }
 
-.device .temperature-input {
-    width: 100%;
+.temperature-input {
     padding: 8px;
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #44475a;
+    color: #e0e0e0;
 }
 
-.device button {
+.temperature-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.power-button {
     width: 100%;
-    padding: 10px;
+    padding: 0.8rem;
     font-size: 1rem;
     font-weight: bold;
     color: white;
     background-color: #4CAF50;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.device button:hover {
+.power-button:hover {
     background-color: #45a049;
 }

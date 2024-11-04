@@ -1,5 +1,6 @@
 // src/components/SignupPage.js
 import React, { useState } from 'react';
+import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa'; // 아이콘 추가
 import './SignupPage.css';
 
 function SignupPage() {
@@ -20,44 +21,61 @@ function SignupPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // 서버로 회원가입 요청 보내는 부분 (추후 백엔드 연동 시 사용)
         console.log('Form submitted:', formData);
     };
 
     return (
-        <div className="signup-container">
-            <h2>회원가입</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="아이디"
-                    value={formData.username}
-                    onChange={handleChange}
-                />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="이메일"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="비밀번호"
-                    value={formData.password}
-                    onChange={handleChange}
-                />
-                <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="비밀번호 확인"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                />
-                <button type="submit">회원가입</button>
-            </form>
+        <div className="auth-container">
+            <div className="auth-box">
+                <h2>회원가입</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="input-group">
+                        <FaUser className="input-icon" />
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="아이디"
+                            className="auth-input"
+                            value={formData.username}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="input-group">
+                        <FaEnvelope className="input-icon" />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="이메일"
+                            className="auth-input"
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="input-group">
+                        <FaLock className="input-icon" />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="비밀번호"
+                            className="auth-input"
+                            value={formData.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="input-group">
+                        <FaLock className="input-icon" />
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="비밀번호 확인"
+                            className="auth-input"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button type="submit" className="auth-button">회원가입</button>
+                </form>
+            </div>
         </div>
     );
 }
