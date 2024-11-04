@@ -1,25 +1,37 @@
 /* src/components/Dashboard.css */
 .dashboard {
     display: flex;
-    flex-direction: column;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #f7f9fc;
+    font-family: Arial, sans-serif;
+    gap: 1rem;
 }
 
-.user-info, .device-status {
-    margin: 10px 0;
-    padding: 15px;
-    border: 1px solid #ddd;
+.left-section, .right-section {
+    flex: 1;
+    max-width: 48%;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 1.5rem;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.device {
-    padding: 8px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
+.card h3, .card h4 {
+    color: #333;
 }
 
-.device h4 {
-    margin-bottom: 8px;
+.alerts-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+.device-status {
+    margin-top: 1rem;
 }
 
 .device input[type="range"] {
@@ -27,14 +39,27 @@
     margin: 10px 0;
 }
 
+.device .temperature-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
 .device button {
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: #4CAF50;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
     color: white;
+    background-color: #4CAF50;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .device button:hover {
